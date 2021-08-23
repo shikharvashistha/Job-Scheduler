@@ -1,4 +1,4 @@
-package main
+package main 
 
 import (
 	"fmt"
@@ -7,16 +7,16 @@ import (
 	"github.com/onatm/clockwerk"
 )
 
-type Job struct{}
+type Job struct{}//{} is a struct literal
 
-func (d Job) Run() {
-	time.Sleep(4 * time.Second)
-	fmt.Println("Every 30 seconds")
+func (d Job) Run() {//this is the job
+	time.Sleep(4 * time.Second)//sleep for 4 seconds
+	fmt.Println("Every 30 seconds")//print every 30 seconds
 }
 
 func main() {
-	var job Job
-	c := clockwerk.New()
-	c.Every(30 * time.Second).Do(job)
-	c.Start()
+	var job Job//create a job
+	c := clockwerk.New()//create a new clockwerk instance
+	c.Every(30 * time.Second).Do(job)//every 30 seconds, do the job
+	c.Start()//start the clockwerk instance
 }
